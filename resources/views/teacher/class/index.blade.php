@@ -12,7 +12,7 @@
         </p>
       </div>
       <div>
-        <a href="#modalKelas" data-bs-toggle="modal" class="btn btn-primary rounded" onclick="clearModal()">
+        <a href="#modalKelas" data-bs-toggle="modal" class="btn btn-primary rounded" onclick="clearModal">
           <i class="ph ph-plus-circle"></i>
           <span>Tambah Kelas</span>
         </a>
@@ -28,15 +28,19 @@
           <form action="{{ route('Tambah Kelas') }}" method="post">
             <div class="modal-body">
               @csrf
-              <div class="mb-3">
+              <div class="mb-24">
                 <label for="kelas" class="form-label">Kelas: </label>
                 <input type="hidden" name="id" id="id">
                 <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Contoh: Kelas 5">
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  <i class="ph ph-x"></i> Batal
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="bx bx-save"></i> Simpan
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -112,6 +116,7 @@
   });
 
   function editKelas(kelas) {
+    console.log(kelas);
     document.getElementById('kelas').value = kelas.name;
     document.getElementById('id').value = kelas.id;
   }

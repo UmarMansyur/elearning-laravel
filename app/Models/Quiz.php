@@ -9,4 +9,12 @@ class Quiz extends Model {
     'topic_id', 'title', 'description', 'number_of_question', 'duration', 'start_date', 'end_date', 'max_score', 'bobot'
   ];
   protected $hidden = ['created_at', 'updated_at'];
+
+  public function topic() {
+    return $this->belongsTo(Topic::class);
+  }
+
+  public function questions() {
+    return $this->hasMany(Question::class);
+  }
 }

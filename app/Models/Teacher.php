@@ -10,8 +10,17 @@ class Teacher extends Model
   protected $fillable = ['nuptk', 'name', 'address', 'gender', 'dob', 'pob'];
   protected $hidden = ['created_at', 'updated_at'];
 
-  public function user()
-  {
+  public function user() {
     return $this->belongsTo(User::class);
-  } 
+  }
+
+  public function module() {
+    return $this->hasMany(Module::class);
+  }
+
+  public function LearningActivity() {
+    return $this->hasMany(LearningActivity::class);
+  }
+
+  
 }

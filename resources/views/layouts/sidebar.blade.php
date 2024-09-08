@@ -80,7 +80,7 @@
           </ul>
           <!-- Submenu End -->
         </li>
-        <li class="sidebar-menu__item has-dropdown {{ request()->is('teacher/role') ? 'activePage' : '' }}">
+        <li class="sidebar-menu__item has-dropdown {{ request()->is('teacher/role') || request()->is('teacher/kelas')  ? 'activePage' : '' }}">
           <a href="javascript:void(0)" class="sidebar-menu__link">
             <span class="icon"><i class="ph ph-database"></i></span>
             <span class="text">Data Master</span>
@@ -93,8 +93,8 @@
             <li class="sidebar-submenu__item">
               <a href="student-courses.html" class="sidebar-submenu__link">Fase</a>
             </li>
-            <li class="sidebar-submenu__item">
-              <a href="mentor-courses.html" class="sidebar-submenu__link">Kelas</a>
+            <li class="sidebar-submenu__item {{ request()->is('teacher/kelas') ? 'activePage' : '' }}">
+              <a href="/teacher/kelas" class="sidebar-submenu__link">Kelas</a>
             </li>
             <li class="sidebar-submenu__item {{ request()->is('teacher/role') ? 'activePage' : '' }}">
               <a href="/teacher/role" class="sidebar-submenu__link">Role/Hak Akses</a>

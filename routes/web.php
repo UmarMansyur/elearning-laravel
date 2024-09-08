@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\RoleController;
@@ -21,6 +22,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'teacher'], function () {
     Route::get('/get_data_role', [RoleController::class, 'get_data_role'])->name('get_data_role');
     Route::post('/role', [RoleController::class, 'store'])->name('Tambah Role');
     Route::get('/role/delete/{id}', [RoleController::class, 'deleteRole'])->name('Hapus Role');
+    Route::get('/kelas', [ClassController::class, 'index'])->name('kelas');
+    Route::get('/get_data_kelas', [ClassController::class, 'get_data_kelas'])->name('get_data_kelas');
+    Route::post('/kelas', [ClassController::class, 'store'])->name('Tambah Kelas');
+    Route::get('/kelas/delete/{id}', [ClassController::class, 'deleteKelas'])->name('Hapus Kelas');
 });
 
 

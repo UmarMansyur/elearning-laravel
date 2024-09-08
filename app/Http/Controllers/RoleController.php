@@ -29,23 +29,29 @@ class RoleController extends Controller
             ->make(true);
     }
 
-    public function checkExist(Request $request)
+    public function checkExist(Request $request, $id = 0)
     {
+
         $role = Roles::where('name', $request->name)->first();
+        if ($id) {
+            $role = Roles::where('name', $request->name)->where('id', '!=', $id)->first();
+        }
         if ($role) {
-            return redirect()->back()->withErrors(['error' => 'Role already exist']);
+            return redirect()->back()->with(['error' => 'Role already exist']);
         }
     }
 
     public function store(Request $request)
     {
         try {
-            if($request->id){
+            if ($request->id) {
                 $role = Roles::find($request->id);
                 $role->name = $request->role;
+                $this->checkExist($request, $request->id);
                 $role->save();
                 return redirect()->back()->with('success', 'Role berhasil diupdate');
-            }else{
+            } else {
+                $this->checkExist($request);
                 $role = Roles::create([
                     'name' => $request->role
                 ]);

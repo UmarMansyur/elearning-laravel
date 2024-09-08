@@ -28,15 +28,19 @@
           <form action="{{ route('Tambah Role') }}" method="post">
             <div class="modal-body">
               @csrf
-              <div class="mb-3">
+              <div class="mb-24">
                 <label for="role" class="form-label">Role: </label>
                 <input type="hidden" name="id" id="id">
                 <input type="text" class="form-control" id="role" name="role" placeholder="Role">
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  <i class="ph ph-x"></i> Batal
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="bx bx-save"></i> Simpan
+                </button>
+              </div>
             </div>
           </form>
         </div>

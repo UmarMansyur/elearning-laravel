@@ -9,4 +9,8 @@ class Roles extends Model {
     'name'
   ];
   protected $hidden = ['created_at', 'updated_at'];
+
+  public function roleUser() {
+    return $this->hasMany(RoleUser::class);
+  }
 }

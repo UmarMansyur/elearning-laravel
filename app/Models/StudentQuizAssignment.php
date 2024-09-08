@@ -8,4 +8,12 @@ class StudentQuizAssignment extends Model {
   protected $table = 'student_quiz_assignment';
   protected $fillable = ['student_id', 'quiz_id', 'question_id', 'answer_id', 'score', 'is_correct'];
   protected $hidden = ['created_at', 'updated_at'];
+
+  public function student() {
+    return $this->belongsTo(User::class);
+  }
+
+  public function quiz() {
+    return $this->belongsTo(Quiz::class);
+  }
 }
