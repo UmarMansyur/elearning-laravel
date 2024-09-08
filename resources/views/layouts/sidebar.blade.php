@@ -6,7 +6,7 @@
   <!-- sidebar close btn -->
   <a href="index.html"
     class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
-    <img src="/assets/images/logo/logo.svg" alt="Logo" width="190">
+    <img src="/assets/images/logo/logo.svg" alt="Logo" width="150">
   </a>
 
   <div class="sidebar-menu-wrapper overflow-y-auto scroll-sm">
@@ -34,12 +34,6 @@
           </ul>
           <!-- Submenu End -->
         </li>
-        {{-- <li class="sidebar-menu__item">
-          <a href="/teacher/modul" class="sidebar-menu__link {{ request()->is('teacher/modul') ? 'activePage' : '' }}">
-            <span class="icon"><i class="ph ph-books"></i></span>
-            <span class="text">Modul</span>
-          </a>
-        </li> --}}
         <li class="sidebar-menu__item">
           <a href="javascript:void(0)" class="sidebar-menu__link">
             <span class="icon"><i class="ph ph-clipboard-text"></i></span>
@@ -70,7 +64,6 @@
             <span class="text">Kenaikan Kelas</span>
           </a>
         </li>
-
         <li class="sidebar-menu__item has-dropdown">
           <a href="javascript:void(0)" class="sidebar-menu__link">
             <span class="icon"><i class="ph ph-users-three"></i></span>
@@ -87,7 +80,7 @@
           </ul>
           <!-- Submenu End -->
         </li>
-        <li class="sidebar-menu__item has-dropdown">
+        <li class="sidebar-menu__item has-dropdown {{ request()->is('teacher/role') ? 'activePage' : '' }}">
           <a href="javascript:void(0)" class="sidebar-menu__link">
             <span class="icon"><i class="ph ph-database"></i></span>
             <span class="text">Data Master</span>
@@ -102,6 +95,9 @@
             </li>
             <li class="sidebar-submenu__item">
               <a href="mentor-courses.html" class="sidebar-submenu__link">Kelas</a>
+            </li>
+            <li class="sidebar-submenu__item {{ request()->is('teacher/role') ? 'activePage' : '' }}">
+              <a href="/teacher/role" class="sidebar-submenu__link">Role/Hak Akses</a>
             </li>
           </ul>
           <!-- Submenu End -->

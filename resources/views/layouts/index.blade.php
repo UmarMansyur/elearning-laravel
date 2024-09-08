@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    E-Modul
+    E-Modul | @yield('title')
   </title>
   <link rel="shortcut icon" href="/assets/images/logo/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -20,6 +20,13 @@
   <link rel="stylesheet" href="/assets/css/jquery-jvectormap-2.0.5.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
 </head>
 
 <body>
@@ -38,10 +45,22 @@
   <script src="/assets/js/full-calendar.js"></script>
   <script src="/assets/js/jquery-ui.js"></script>
   <script src="/assets/js/editor-quill.js"></script>
+  <script src="/assets/js/sweetalert2.min.js"></script>
   <script src="/assets/js/apexcharts.min.js"></script>
   <script src="/assets/js/jquery-jvectormap-2.0.5.min.js"></script>
   <script src="/assets/js/jquery-jvectormap-world-mill-en.js"></script>
   <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            let alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                let bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 3000);
+    });
+</script>
   @if(Request::is('teacher/dashboard') || Request::is('student/dashboard/*'))
   <script>
        // ============================= Calendar Js Start =================================
@@ -127,5 +146,6 @@
         // ============================= Calendar Js End =================================
   </script>
   @endif
+  @yield('scripts')
 </body>
 </html>
