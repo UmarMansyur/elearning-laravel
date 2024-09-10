@@ -61,8 +61,6 @@ class ClassController extends Controller
         }
     }
 
-
-
     public function deleteKelas(Request $request)
     {
         try {

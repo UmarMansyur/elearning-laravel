@@ -80,7 +80,7 @@
           </ul>
           <!-- Submenu End -->
         </li>
-        <li class="sidebar-menu__item has-dropdown {{ request()->is('teacher/role') || request()->is('teacher/kelas')  ? 'activePage' : '' }}">
+        <li class="sidebar-menu__item has-dropdown {{ request()->is('teacher/role') || request()->is('teacher/class')  ? 'activePage' : '' }}">
           <a href="javascript:void(0)" class="sidebar-menu__link">
             <span class="icon"><i class="ph ph-database"></i></span>
             <span class="text">Data Master</span>
@@ -90,11 +90,11 @@
             <li class="sidebar-submenu__item">
               <a href="student-courses.html" class="sidebar-submenu__link">Mata Pelajaran</a>
             </li>
-            <li class="sidebar-submenu__item">
-              <a href="student-courses.html" class="sidebar-submenu__link">Fase</a>
+            <li class="sidebar-submenu__item {{ request()->is('teacher/phase') ? 'activePage' : '' }}">
+              <a href="/teacher/phase" class="sidebar-submenu__link">Fase</a>
             </li>
-            <li class="sidebar-submenu__item {{ request()->is('teacher/kelas') ? 'activePage' : '' }}">
-              <a href="/teacher/kelas" class="sidebar-submenu__link">Kelas</a>
+            <li class="sidebar-submenu__item {{ request()->is('teacher/class') ? 'activePage' : '' }}">
+              <a href="/teacher/class" class="sidebar-submenu__link">Kelas</a>
             </li>
             <li class="sidebar-submenu__item {{ request()->is('teacher/role') ? 'activePage' : '' }}">
               <a href="/teacher/role" class="sidebar-submenu__link">Role/Hak Akses</a>

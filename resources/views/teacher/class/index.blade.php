@@ -3,7 +3,7 @@
 @section('dashboard', '/teacher/dashboard')
 @extends('layouts.admin')
 @section('content2')
-<div class="card mt-24">
+<div class="card mt-12">
   <div class="card-header border-bottom">
     <div class="flex-between flex-wrap gap-16">
       <div>
@@ -94,7 +94,7 @@
       processing: true,
       serverSide: true,
       ajax: {
-        url: "{{ route('get_data_kelas') }}",
+        url: "{{ route('get_data_class') }}",
       },
       columns: [
         {
